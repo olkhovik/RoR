@@ -27,7 +27,8 @@ def create
   end
 
   def update
-      if @category.find(params[:id])
+    @category = Category.find(params[:id])
+      if @category.update(category_params)
         redirect_to @category, notice: 'Category was successfully updated.'
       else
         render :edit
@@ -35,7 +36,8 @@ def create
   end
 
   def destroy
-    @category.find(params[:id])
+    @category = Category.find(params[:id])
+    @category.destroy
       redirect_to categories_url, notice: 'Category was successfully destroyed.'
   end
 
