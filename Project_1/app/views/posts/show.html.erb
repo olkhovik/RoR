@@ -10,5 +10,12 @@
   <%= @post.body %>
 </p>
 
+
+<h3>Комментарии</h3>
+<% @post.comments.each do |comment| %>
+<p><%= comment.body %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path %> |
+<%= link_to 'Back to Home Page', welcome_index_path %>
