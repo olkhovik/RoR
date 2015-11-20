@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Body:</strong>
-  <%= @category.body %>
+  <strong>Name:</strong>
+  <%= @category.title %>
 </p>
+
+<%= render @posts %>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

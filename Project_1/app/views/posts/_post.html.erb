@@ -1,0 +1,17 @@
+<div class="container col-lg-12">
+
+  <div class="row">
+    <h2><%= link_to post.title, post %></h2>
+  </div>
+
+  <div class="row">
+    <p><%= truncate(post.body, length: 200) %></p>
+    <p><%= link_to 'Read more...', post %></p>
+  </div>
+
+  <div class="row">
+    <p>Tags: <%= post.categories_titles %></p>
+  </div>
+  <hr>
+
+</div>
