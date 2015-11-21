@@ -50,7 +50,15 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+
+            <% if user_signed_in? %>
+                <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+                  <span>Email: <%= current_user.email %></span>
+              <% else %>
+                  <br>
+                  <li><%= link_to "Войти", new_user_session_path %></li>
+              <% end %>
+
           </ul>
         </div>
       </div>

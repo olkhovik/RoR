@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  #before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :owner_check, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
@@ -53,4 +54,10 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body, category_ids: [], comment_ids: [])
     end
 
+  def owner_check
+      @post = Post.find(params[:id])
+      unless current_user.owner_of?(@post)
+        redirect_to posts_url, notice: 'У вас нет прав на выполнение этого действия'
+      end
+  end
 end

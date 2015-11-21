@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+
 #  get 'welcome/index'
 #  root 'welcome#index'
 root 'posts#index'
 
+  devise_for :users, shallow: true
+
   resources :posts do
     resources :comments, shallow: true
   end
-  resources :categories
+
+  resources :categories, only: [:show]
   resources :tags
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

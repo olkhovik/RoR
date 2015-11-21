@@ -5,5 +5,6 @@
 
 <%= render @posts %>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% if current_user && current_user.admin? %>
+    <%= link_to 'Все категории', admin_categories_path %>
+<% end %>
