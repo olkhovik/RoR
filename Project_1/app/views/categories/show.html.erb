@@ -6,5 +6,5 @@
 <%= render @posts %>
 
 <% if current_user && current_user.admin? %>
-    <%= link_to 'Все категории', admin_categories_path %>
+    <%= link_to 'All Categories', admin_categories_path %>
 <% end %>

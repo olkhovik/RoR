@@ -4,13 +4,7 @@
 
 <p>
   <strong>Tags: </strong>
-  <% unless @post.categories.empty? %>
-
     <%= @post.categories_titles %>
-<% else %>
-    <p>Choose Tag</p>
-
-<% end %>
 </p>
 
 <% if @post.user.present? %>

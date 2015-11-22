@@ -1,19 +1,17 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
+  before_action :set_category, only: [:edit, :update, :destroy]
 
-=begin
-def index
+
+  def index
     @categories = Category.all
   end
-=end
 
 
   def show
-    @category = Category.find(params[:id])
     @posts = @category.posts
   end
 
-=begin
-def new
+  def new
     @category = Category.new
   end
 
@@ -21,9 +19,9 @@ def new
     @category = Category.new(category_params)
 
     if @category.save
-        redirect_to @category, notice: 'Category was successfully created.'
+      redirect_to admin_categories_path, notice: 'New Category was successfully created.'
     else
-        render :new
+      render :new
     end
 
 
@@ -46,17 +44,17 @@ def new
 
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
-    redirect_to categories_path, notice: 'Category was successfully destroyed.'
+    redirect_to admin_categories_path, notice: 'Category was successfully deleted.'
   end
-=end
-
-
 
 
 
   private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
   def category_params
     params.require(:category).permit(:title)

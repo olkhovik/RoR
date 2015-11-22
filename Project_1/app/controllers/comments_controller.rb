@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
-    #@comment.user = current_user
+    @comment.user = current_user
 
     if @comment.save
       redirect_to @post, notice: 'Comment was successfully created.'
@@ -56,7 +56,7 @@ class CommentsController < ApplicationController
 
   def owner_check
     unless current_user.owner_of?(@comment)
-      redirect_to posts_url, notice: 'У вас нет прав на выполнение этого действия'
+      redirect_to posts_url, notice: 'You do not have permission to perform this action!'
     end
   end
 

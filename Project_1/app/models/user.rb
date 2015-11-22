@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_one :profile
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   def owner_of?(object)
-    #id == object.user_id || admin?
+    id == object.user_id || admin?
   end
 end

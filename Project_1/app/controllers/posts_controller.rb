@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   def owner_check
       @post = Post.find(params[:id])
       unless current_user.owner_of?(@post)
-        redirect_to posts_url, notice: 'У вас нет прав на выполнение этого действия'
+        redirect_to posts_url, notice: 'You do not have permission to perform this action!'
       end
   end
 end
