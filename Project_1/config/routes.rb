@@ -7,7 +7,17 @@ root 'posts#index'
   devise_for :users, shallow: true
 
   resources :posts do
+    get :my, on: :collection
+    get :drafts, on: :collection
+    get :moderation, on: :collection
+    get :published, on: :collection
+
+    patch :publish, on: :member
+    patch :to_moderation, on: :member
+    patch :to_draft, on: :member
+
     resources :comments, shallow: true
+    resources :subscriptions, only: [:create, :destroy], shallow: true
   end
 
   resources :categories, only: [:show]

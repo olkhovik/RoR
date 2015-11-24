@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121203225) do
+ActiveRecord::Schema.define(version: 20151123161828) do
 
   create_table "categories", force: :cascade do |t|
     t.text     "title"
@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(version: 20151121203225) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
+    t.integer  "status",     default: 0
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -52,6 +53,16 @@ ActiveRecord::Schema.define(version: 20151121203225) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subscriptions", ["post_id"], name: "index_subscriptions_on_post_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"

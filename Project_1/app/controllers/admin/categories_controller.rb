@@ -23,8 +23,6 @@ class Admin::CategoriesController < Admin::BaseController
     else
       render :new
     end
-
-
   end
 
   def edit
@@ -39,7 +37,6 @@ class Admin::CategoriesController < Admin::BaseController
     else
       render :edit
     end
-
   end
 
 
