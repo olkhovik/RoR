@@ -1,8 +1,0 @@
-<% post.categories.each  do |category| %>
-    <% if category == post.categories.first %>
-        Категории:
-    <% end %>
-    <%= link_to category.title, category %>
-    <% unless category == post.categories.last %>,
-    <% end %>
-<% end %>
