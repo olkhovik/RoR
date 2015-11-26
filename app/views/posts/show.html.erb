@@ -1,0 +1,42 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<p>
+  <strong>Tags: </strong>
+    <%= @post.categories_titles %>
+</p>
+
+<% if @post.user.present? %>
+    <p>
+      <strong>Автор:</strong>
+      <%= @post.user.email %>
+    </p>
+<% end %>
+
+<h3>Comments</h3>
+<% unless @post.comments.empty? %>
+
+    <%= render @comments %>
+<% else %>
+    <p>There is no Comments</p>
+<% end %>
+
+<h4>New Comment</h4>
+<%= render 'comments/form' %>
+
+
+<% if current_user && current_user.owner_of?(@post)  %>
+    <%= link_to 'Edit Post', edit_post_path(@post) %> |
+    <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% case @post.status%>
+      <% when "draft" %>
+        <%= link_to 'Отправить на модерацию', to_moderation_post_path(@post), method: :patch %>
+      <% when "moderation" %>
+        <%= link_to 'Опубликовать', publish_post_path(@post), method: :patch if current_user.admin? %>
+        <%= link_to 'Вернуть в черновики', to_draft_post_path(@post), method: :patch %>
+      <% when "published" %>
+        <%= link_to 'Вернуть в черновики', to_draft_post_path(@post), method: :patch %>
+    <% end %>
+<% end %>
+

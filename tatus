@@ -1,0 +1,41 @@
+[33mcommit 65f561ea5f264917b109dc46b27a379276c35ebf[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Sun Nov 22 20:59:59 2015 +0300
+
+    добавлен Admin User, создана Админка
+
+[33mcommit 5493200d23ec8f7b3f649c936f4115815d7214f6[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Sat Nov 21 22:35:10 2015 +0300
+
+    добавлена аутентификация
+
+[33mcommit 1bce3f7ec16c16f30d5f59367313361c6e088506[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Fri Nov 20 22:46:13 2015 +0300
+
+    подключен bootstrap, комментарии вложены в посты, у постов есть категории
+
+[33mcommit 617aee7dc64ea1d4165ad0c0ce7bcad0dffbe84e[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Sun Nov 8 19:56:18 2015 +0300
+
+    Associations
+
+[33mcommit dd9e446c13db8788df13da1d557da4fc57829462[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Mon Nov 2 15:35:00 2015 +0300
+
+    fix categories_controller
+
+[33mcommit 559cbc6a8d56735a9fa04f0fd3bdcac45cadbbe3[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Sun Nov 1 09:20:48 2015 +0300
+
+    Model category has been created
+
+[33mcommit 9ec9096c4ba1ce9ad52af139a673e0d2a8415877[m
+Author: Dmitry Olkhovik <dmitry.olkhovik@gmail.com>
+Date:   Mon Oct 26 22:26:01 2015 +0300
+
+    My First RoR-application

@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      post: "Post"
+      comment: "Comment"
+    attributes:
+      post:
+        title: "Title"
+        body: "Text"
+        category_ids: "Tags"
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+      models:
+        post:
+          attributes:
+            title:
+              blank: 'должен быть заполнен'
