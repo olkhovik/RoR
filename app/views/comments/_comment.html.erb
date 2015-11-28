@@ -3,7 +3,7 @@
   <div class="row">
     <p><%= comment.body %></p>
       <% if current_user && current_user.owner_of?(comment)  %>
-        <%= link_to 'Edit Comment', edit_comment_path(comment) %> |
+        <%= link_with_icon :pencil, edit_comment_path(comment), title: 'Edit Comment' %> |
         <%= link_to 'Delete Comment', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
   </div>
